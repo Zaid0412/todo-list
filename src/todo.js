@@ -106,8 +106,6 @@ export function createTodo() {
   let priority = priorityInput.value;
   let project = projectInput.value;
 
-  const [year, month, day] = dueDate.split("-");
-
   if (title != "" && dueDate != "") {
     allTodos.push(new Todo(title, description, dueDate, priority, project));
     console.log(allTodos);
@@ -183,16 +181,12 @@ function showTodos(projName) {
     let priority = todo.priority;
     let project = todo.project;
 
-    const [year, month, day] = dueDate.split("-");
-
     if (title != "" && dueDate != "") {
       createTodoHtml(title, description, dueDate, priority, project);
     }
   }
 }
 //////////////////////////////////////////////////////////////////
-
-menuIcon.addEventListener("click", toggleSidebar);
 
 plusIcon.addEventListener("click", () => {
   projectModal.showModal();
@@ -256,8 +250,6 @@ allTask.addEventListener("click", function () {
     let priority = todo.priority;
     let project = todo.project;
 
-    const [year, month, day] = dueDate.split("-");
-
     if (title != "" && dueDate != "") {
       createTodoHtml(title, description, dueDate, priority, project);
     }
@@ -275,7 +267,7 @@ export function newTodoModal() {
   }
 }
 
-function toggleSidebar() {
+export function toggleSidebar() {
   sidebar.classList.toggle("sidebar-toggled");
 }
 
@@ -312,9 +304,10 @@ export function toggleTheme() {
       break;
 
     case "dark":
-      console.log("dark ");
       menuIcon.src = menuIcon_light;
       addIcon.src = addIcon_light;
+      allTxt.style.color = "#eee";
+      projectTxt.style.color = "#eee";
 
       for (const icon of deleteIcon) {
         icon.src = deleteIcon_light;

@@ -8,8 +8,13 @@ const closeTodoModal = document.querySelector("#cancel-todo");
 const addTodoBtn = document.querySelector("#submit-todo");
 const todoModal = document.querySelector(".new-todo-modal");
 const themeToggleBtn = document.querySelector(".theme-toggle-btn");
+const menuIcon = document.querySelector(".menu-icon");
 
+// Change theme //
 themeToggleBtn.addEventListener("click", toggleTheme);
+
+// Close/open sidebar //
+menuIcon.addEventListener("click", toggleSidebar);
 
 //  Opening new todo modal //
 
