@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body class="">
+    <header>
+      <img
+        src="./imgs/menu(light_version).png"
+        alt="Menu icon"
+        class="menu-icon icon"
+      />
+
+      <h1 class="header">Todo List</h1>
+
+      <img
+        src="./imgs/add(light_version).png"
+        alt="Add todo icon"
+        class="add-icon icon"
+      />
+
+      <div class="checkbox-wrapper-54">
+        <label class="switch">
+          <input type="checkbox" class="theme-toggle-btn">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="sidebar light">
+        <div class="active sidebar-item  inbox-div ">
+          <img
+            src="./imgs/inbox(dark-version).png"
+            alt="inbox icon"
+            class="inbox-icon icon"
+          />
+          <h3 class="all-tasks">All</h3>
+        </div>
+
+        <div class="sidebar-item projects-div">
+          <img
+            src="./imgs/projects(dark-version).png"
+            alt="Projects icon"
+            class="projects-icon icon"
+          />
+          <h3 class="prj">Projects</h3>
+          <img
+            src="./imgs/plus(dark-version).png"
+            alt="new project icon"
+            class="plus-icon icon"
+          />
+        </div>
+        <ul class="project-list">
+          <li class="project-list-item inbox">Inbox</li>
+        </ul>
+      </div>
+
+      <dialog class="new-project-modal" >
+        <div class="new-proj_header-cnt">
+          <h2>New Project</h2>
+        </div>
+
+        <form action="" method="dialog" class="new-proj-form">
+          <div class="txt">
+            <label for="proj-name">Name:</label>
+            <input type="text" name="title" id="proj-name" required />
+          </div>
+
+          <div class="btns">
+
+            <button type="button" id="cancel-proj">Cancel</button>
+            <button type="submit" id="submit-project">Add Project</button>
+          </form>
+        </div>
+      </dialog>
+      <div class="allTodos">
+        <div class="todo">
+          <div class="checkbox-wrapper-1">
+            <input
+              id="example-1"
+              class="substituted"
+              type="checkbox"
+              aria-hidden="true"
+            />
+            <label for="example-1">${title}</label>
+          </div>
+          <h3>${day}/${month}/${year}</h3>
+
+          <div class="todo-icons">
+            <img
+              src="./imgs/delete(light_version).png"
+              alt="Delete icon"
+              class="delete-icon icon"
+            />
+
+            <img
+              src="./imgs/info(light_version).png"
+              alt="More info icon"
+              class="info-icon icon"
+            />
+          </div>
+        </div>
+        <div class="todo">
+          <div class="checkbox-wrapper-1">
+            <input
+              id="example-1"
+              class="substituted"
+              type="checkbox"
+              aria-hidden="true"
+            />
+            <label for="example-1">${title}</label>
+          </div>
+          <h3>${day}/${month}/${year}</h3>
+
+          <div class="todo-icons">
+            <img
+              src="./imgs/delete(light_version).png"
+              alt="Delete icon"
+              class="delete-icon icon"
+            />
+
+            <img
+              src="./imgs/info(light_version).png"
+              alt="More info icon"
+              class="info-icon icon"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <dialog class="new-todo-modal">
+      <div class="new-task_header-cnt">
+        <h2>New Task</h2>
+      </div>
+
+      <form action="" method="dialog" class="new-todo-form">
+        <div class="txt">
+          <label for="title">Title:</label>
+          <input type="text" name="title" id="title" required />
+
+          <label for="description">Description:</label>
+          <textarea
+            name="description"
+            id="description"
+            rows="5"
+            cols="10"
+          ></textarea>
+        </div>
+
+        <div class="other-info">
+          <label for="date">Due Date:</label>
+          <input type="date" name="date" id="date" required />
+
+          <label for="priority">Priority:</label>
+          <select name="priority" id="priority">
+            <option value="low" selected>Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+
+          <label for="project">Project:</label>
+          <select name="project" id="project">
+            <option value="inbox">Inbox</option>
+          </select>
+        </div>
+        <button type="button" id="cancel-todo">Cancel</button>
+
+        <button type="submit" id="submit-todo">Add Task</button>
+      </form>
+    </dialog>
+  </body>
+</html>

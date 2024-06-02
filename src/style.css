@@ -1,0 +1,552 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+:root {
+  --primary-dark: #333;
+  --primary-light: #eee;
+  --secondary-light: #c1bfbf;
+  --secondary-dark: #444;
+}
+
+* {
+  font-family: "Outfit", sans-serif;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--primary-light);
+}
+
+body.dark {
+  --primary-dark: #eee;
+  --primary-light: #333;
+  --secondary-light: #444;
+  --secondary-dark: #c1bfbf;
+}
+
+button {
+  border: 2px solid var(--primary-dark);
+}
+
+/* Header */
+
+header {
+  box-sizing: border-box;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-light);
+  height: 80px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.icon {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+}
+
+.substituted:hover,
+.icon:hover {
+  /* filter: drop-shadow(0 0 1rem var(--primary-dark)); */
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.menu-icon {
+  margin-right: auto;
+  margin-left: 37px;
+}
+
+.add-icon {
+  margin-left: auto;
+  margin-right: 37px;
+}
+
+.header {
+  color: var(--primary-dark);
+  font-size: 40px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid var(--secondary-dark);
+}
+
+.new-todo-modal {
+  padding: 0;
+  /* display: grid; */
+  overflow: hidden;
+  grid-template-rows: 1fr 2fr;
+  width: 700px;
+  height: 375px;
+  border: 1px solid var(--secondary-light);
+  background-color: var(--primary-dark);
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  opacity: 0;
+}
+.new-project-modal::backdrop,
+.new-todo-modal::backdrop {
+  background-color: black;
+  opacity: 0.4;
+}
+
+.new-proj_header-cnt,
+.new-task_header-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--secondary-light);
+  color: var(--primary-dark);
+}
+
+.new-proj_header-cnt h2,
+.new-task_header-cnt h2 {
+  color: var(--primary-light);
+
+  font-size: 30px;
+  font-weight: 800;
+}
+
+/* .new-proj-form, */
+.new-todo-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 25px;
+  padding: 25px;
+}
+
+.txt label {
+  color: var(--primary-dark);
+}
+
+#submit-project,
+#cancel-proj,
+#cancel-todo,
+#submit-todo {
+  height: 30px;
+  font-weight: 500;
+  border: 2px solid var(--primary-light);
+  border-radius: 3px;
+  /* -webkit-transition: all 0.3s;
+  transition: all 0.3s; */
+}
+/* 
+#cancel-todo:hover,
+#submit-todo:hover {
+  
+} */
+
+.new-proj-form label,
+.new-todo-form label {
+  font-weight: 500;
+  color: var(--primary-light);
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--primary-light);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.1);
+}
+
+.txt {
+  display: grid;
+}
+
+.txt label {
+  margin-bottom: 4px;
+}
+
+#title {
+  margin-bottom: 20px;
+}
+
+.other-info {
+  display: grid;
+}
+
+.other-info label {
+  margin-top: 10px;
+}
+
+label[for="date"] {
+  margin-top: -14px;
+}
+
+/* Sidebar */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 12fr;
+  height: calc(100vh - 80px);
+}
+
+.sidebar {
+  background-color: #616060;
+  align-items: center;
+  padding: 20px;
+  -webkit-transition: 0.37s ease;
+  transition: 0.37s ease;
+  gap: 30px;
+}
+
+.sidebar-toggled {
+  transform: translateX(-300px);
+}
+
+.sidebar-item {
+  text-align: center;
+  width: 160px;
+  height: 50px;
+  border-radius: 10px;
+  color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+}
+
+.sidebar-item:hover {
+  background-color: #8e8b8b;
+}
+
+.plus-icon {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+}
+
+.active {
+  background-color: #8e8b8b !important;
+}
+
+.projects-icon {
+  width: 25px;
+  height: 25px;
+}
+.inbox-icon {
+  /* margin-right: 15px; */
+  width: 30px;
+  height: 30px;
+}
+
+.allTodos {
+  padding: 50px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  width: 1300px;
+  height: 50px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--secondary-light);
+  border-left: 15px solid #f0b429;
+  border-radius: 15px;
+
+  color: var(--secondary-dark);
+
+  padding: 10px;
+}
+
+.todo:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.008);
+}
+
+.todo label {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.todo-icons {
+  margin-right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.info-icon,
+.delete-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.checkbox-wrapper-1 *,
+.checkbox-wrapper-1 ::after,
+.checkbox-wrapper-1 ::before {
+  box-sizing: border-box;
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted {
+  margin: 0;
+  width: 0;
+  height: 0;
+  display: inline;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted + label:before {
+  content: "";
+  display: inline-block;
+  vertical-align: top;
+  height: 1.15em;
+  width: 1.15em;
+  margin-right: 0.6em;
+  color: rgba(0, 0, 0, 0.275);
+  border: solid 0.06em;
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em inset,
+    0 0 0 0.07em transparent inset;
+  border-radius: 0.2em;
+  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" fill="white" viewBox="0 0 9 9"><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>')
+      no-repeat center,
+    white;
+  background-size: 0;
+  will-change: color, border, background, background-size, box-shadow;
+  transform: translate3d(0, 0, 0);
+  transition: color 0.1s, border 0.1s, background 0.15s, box-shadow 0.1s;
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted:enabled:active + label:before,
+.checkbox-wrapper-1
+  [type="checkbox"].substituted:enabled
+  + label:active:before {
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset,
+    0 0 0 0.07em rgba(0, 0, 0, 0.1) inset;
+  background-color: #f0f0f0;
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted:checked + label:before {
+  background-color: #3b99fc;
+  background-size: 0.75em;
+  color: rgba(0, 0, 0, 0.075);
+}
+.checkbox-wrapper-1
+  [type="checkbox"].substituted:checked:enabled:active
+  + label:before,
+.checkbox-wrapper-1
+  [type="checkbox"].substituted:checked:enabled
+  + label:active:before {
+  background-color: #0a7ffb;
+  color: rgba(0, 0, 0, 0.275);
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted:focus + label:before {
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset,
+    0 0 0 0.07em rgba(0, 0, 0, 0.1) inset, 0 0 0 3.3px rgba(65, 159, 255, 0.55),
+    0 0 0 5px rgba(65, 159, 255, 0.3);
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted:focus:active + label:before,
+.checkbox-wrapper-1 [type="checkbox"].substituted:focus + label:active:before {
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset,
+    0 0 0 0.07em rgba(0, 0, 0, 0.1) inset, 0 0 0 3.3px rgba(65, 159, 255, 0.55),
+    0 0 0 5px rgba(65, 159, 255, 0.3);
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted:disabled + label:before {
+  opacity: 0.5;
+}
+
+.checkbox-wrapper-1 [type="checkbox"].substituted.dark + label:before {
+  color: rgba(255, 255, 255, 0.275);
+  background-color: #222;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" fill="rgba(34, 34, 34, 0.999)" viewBox="0 0 9 9"><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>');
+}
+.checkbox-wrapper-1
+  [type="checkbox"].substituted.dark:enabled:active
+  + label:before,
+.checkbox-wrapper-1
+  [type="checkbox"].substituted.dark:enabled
+  + label:active:before {
+  background-color: #444;
+  box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset,
+    0 0 0 0.07em rgba(255, 255, 255, 0.1) inset;
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted.dark:checked + label:before {
+  background-color: #a97035;
+  color: rgba(255, 255, 255, 0.075);
+}
+.checkbox-wrapper-1
+  [type="checkbox"].substituted.dark:checked:enabled:active
+  + label:before,
+.checkbox-wrapper-1
+  [type="checkbox"].substituted.dark:checked:enabled
+  + label:active:before {
+  background-color: #c68035;
+  color: rgba(0, 0, 0, 0.275);
+}
+.checkbox-wrapper-1 [type="checkbox"].substituted + label {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.info-modal {
+  width: 450px;
+  height: 275px;
+  border: 1px solid var(--secondary-light);
+  background-color: var(--primary-dark);
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color: var(--primary-light);
+  opacity: 0;
+  outline: none;
+}
+
+.info-modal::backdrop {
+  background-color: black;
+  opacity: 0.4;
+}
+.info-modal h1 {
+  border-bottom: 3px solid var(--secondary-dark);
+  margin-bottom: 0;
+}
+.info-modal h3 {
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.info-modal span {
+  font-weight: 500;
+}
+
+.close-icon {
+  margin-left: 435px;
+  margin-top: 10px;
+  justify-self: end;
+  align-self: end;
+  display: inline;
+  width: 10px;
+  height: 10px;
+}
+
+.new-project-modal {
+  width: 450px;
+  height: 200px;
+  border: 1px solid var(--secondary-light);
+  background-color: var(--primary-dark);
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color: var(--secondary-dark);
+  /* opacity: 0; */
+  outline: none;
+  overflow: hidden;
+}
+
+.btns {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btns button {
+  flex-grow: 1;
+}
+
+.project-list {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  list-style: none;
+  margin-top: 5px;
+
+  color: var(--primary-light);
+}
+
+.project-list li {
+  font-weight: 500;
+  width: 95px;
+  margin-bottom: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  /* height: 50px; */
+  border-radius: 7px;
+}
+
+.project-list li:hover {
+  background-color: #8e8b8b;
+}
+
+.checkbox-wrapper-54 input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.checkbox-wrapper-54 *,
+.checkbox-wrapper-54 ::after,
+.checkbox-wrapper-54 ::before {
+  box-sizing: border-box;
+}
+
+/* The switch - the box around the slider */
+.checkbox-wrapper-54 .switch {
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  /* size of sliding icon -- sun and moon */
+  --size-of-icon: 1.4em;
+  /* it is like a inline-padding of switch */
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+  display: inline-block;
+}
+
+/* The slider */
+.checkbox-wrapper-54 .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-light);
+
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.checkbox-wrapper-54 .slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset, 0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+
+.checkbox-wrapper-54 input:checked + .slider {
+  background-color: #303136;
+}
+
+.checkbox-wrapper-54 input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+  background: #303136;
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
