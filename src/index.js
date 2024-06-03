@@ -1,5 +1,5 @@
 import "./style.css";
-import { createTodo, newTodoModal, toggleTheme } from "./todo";
+import { createTodo, newTodoModal, toggleTheme, toggleSidebar } from "./todo";
 
 // import { createTodo } from "./newTodo";
 
