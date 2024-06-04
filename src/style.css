@@ -255,7 +255,8 @@ label[for="date"] {
   justify-content: space-between;
   align-items: center;
   align-self: center;
-  width: 1300px;
+  width: calc(100vw - 619.262px);
+  min-width: 353px;
   height: 50px;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
   border: 1px solid var(--secondary-light);

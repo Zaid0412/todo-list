@@ -47,10 +47,20 @@ const addIcon = document.querySelector(".add-icon");
 const allTxt = document.querySelector(".all-tasks");
 const projectTxt = document.querySelector(".prj");
 
-let allTodos = [];
+let allTodos = JSON.parse(localStorage.getItem("todoStorage"));
 let allProjects = ["inbox"];
 let activeProj = "All";
 let theme = "light";
+
+for (const todo of allTodos) {
+  let title = todo.title;
+  let description = todo.description;
+  let dueDate = todo.dueDate;
+  let priority = todo.priority;
+  let project = todo.project;
+
+  createTodoHtml(title, description, dueDate, priority, project);
+}
 
 // Making new todo
 
@@ -108,9 +118,19 @@ export function createTodo() {
 
   if (title != "" && dueDate != "") {
     allTodos.push(new Todo(title, description, dueDate, priority, project));
+    localStorage.clear();
+    localStorage.setItem("todoStorage", JSON.stringify(allTodos));
+
     console.log(allTodos);
 
     createTodoHtml(title, description, dueDate, priority, project);
+
+    setTimeout(() => {
+      titleInput.value = "";
+      descInput.value = "";
+      dateInput.value = "";
+      projectInput.value = "";
+    }, 500);
   }
 }
 
@@ -164,6 +184,8 @@ document.addEventListener("click", (e) => {
       e.target.closest(".todo").children[0].children[1].textContent;
 
     allTodos = allTodos.filter((todo) => !(todo.title == todoTitle));
+    localStorage.setItem("todoStorage", JSON.stringify(allTodos));
+
     e.target.closest(".todo").remove();
 
     console.log(allTodos);
@@ -230,6 +252,10 @@ addProjBtn.addEventListener("click", () => {
     });
     projectList.appendChild(element);
   }
+
+  setTimeout(() => {
+    projNameInput.value = "";
+  }, 500);
 });
 
 allTask.addEventListener("click", function () {
