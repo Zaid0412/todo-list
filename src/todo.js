@@ -47,19 +47,23 @@ const addIcon = document.querySelector(".add-icon");
 const allTxt = document.querySelector(".all-tasks");
 const projectTxt = document.querySelector(".prj");
 
-let allTodos = JSON.parse(localStorage.getItem("todoStorage"));
+let allTodos = JSON.parse(localStorage.getItem("todoStorage"))
+  ? JSON.parse(localStorage.getItem("todoStorage"))
+  : [];
 let allProjects = ["inbox"];
 let activeProj = "All";
 let theme = "light";
 
-for (const todo of allTodos) {
-  let title = todo.title;
-  let description = todo.description;
-  let dueDate = todo.dueDate;
-  let priority = todo.priority;
-  let project = todo.project;
+if (allTodos) {
+  for (const todo of allTodos) {
+    let title = todo.title;
+    let description = todo.description;
+    let dueDate = todo.dueDate;
+    let priority = todo.priority;
+    let project = todo.project;
 
-  createTodoHtml(title, description, dueDate, priority, project);
+    createTodoHtml(title, description, dueDate, priority, project);
+  }
 }
 
 // Making new todo
